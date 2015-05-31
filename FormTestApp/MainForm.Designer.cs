@@ -45,13 +45,13 @@
             this.AnimationViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.HelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.spritePanel1 = new GifPaper.SpritePanel();
             this.buttonInsertFrame = new System.Windows.Forms.Button();
             this.buttonRemoveFrame = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.scribblePanel1 = new GifPaper.ScribblePanel();
             this.palettePanel1 = new GifPaper.PalettePanel();
-            this.spritePanel1 = new GifPaper.SpritePanel();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -75,8 +75,8 @@
             // FileToolStripMenuItem
             // 
             this.FileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.gifSaveToolStripMenuItem,
-            this.OpenFileToolStripMenuItem});
+            this.OpenFileToolStripMenuItem,
+            this.gifSaveToolStripMenuItem});
             this.FileToolStripMenuItem.Name = "FileToolStripMenuItem";
             this.FileToolStripMenuItem.Size = new System.Drawing.Size(68, 22);
             this.FileToolStripMenuItem.Text = "ファイル";
@@ -84,14 +84,14 @@
             // gifSaveToolStripMenuItem
             // 
             this.gifSaveToolStripMenuItem.Name = "gifSaveToolStripMenuItem";
-            this.gifSaveToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.gifSaveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.gifSaveToolStripMenuItem.Text = "GIF保存";
             this.gifSaveToolStripMenuItem.Click += new System.EventHandler(this.gifSaveToolStripMenuItem_Click);
             // 
             // OpenFileToolStripMenuItem
             // 
             this.OpenFileToolStripMenuItem.Name = "OpenFileToolStripMenuItem";
-            this.OpenFileToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.OpenFileToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.OpenFileToolStripMenuItem.Text = "開く";
             this.OpenFileToolStripMenuItem.Click += new System.EventHandler(this.OpenFileToolStripMenuItem_Click);
             // 
@@ -197,6 +197,19 @@
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.Layout += new System.Windows.Forms.LayoutEventHandler(this.panel1_Layout);
             // 
+            // spritePanel1
+            // 
+            this.spritePanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.spritePanel1.bitmaps = null;
+            this.spritePanel1.Index = 0;
+            this.spritePanel1.Location = new System.Drawing.Point(3, 3);
+            this.spritePanel1.Name = "spritePanel1";
+            this.spritePanel1.Size = new System.Drawing.Size(675, 60);
+            this.spritePanel1.TabIndex = 7;
+            this.spritePanel1.OnChangeValue += new System.EventHandler(this.spritePanel1_OnChangeValue);
+            this.spritePanel1.Load += new System.EventHandler(this.spritePanel1_Load);
+            this.spritePanel1.Click += new System.EventHandler(this.spritePanel1_Click);
+            // 
             // buttonInsertFrame
             // 
             this.buttonInsertFrame.Location = new System.Drawing.Point(3, 3);
@@ -261,19 +274,6 @@
             this.palettePanel1.TabIndex = 12;
             this.palettePanel1.OnChangeValue += new System.EventHandler(this.palettePanel1_OnChangeValue);
             this.palettePanel1.Load += new System.EventHandler(this.palettePanel1_Load);
-            // 
-            // spritePanel1
-            // 
-            this.spritePanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.spritePanel1.bitmaps = null;
-            this.spritePanel1.Index = 0;
-            this.spritePanel1.Location = new System.Drawing.Point(3, 3);
-            this.spritePanel1.Name = "spritePanel1";
-            this.spritePanel1.Size = new System.Drawing.Size(675, 60);
-            this.spritePanel1.TabIndex = 7;
-            this.spritePanel1.OnChangeValue += new System.EventHandler(this.spritePanel1_OnChangeValue);
-            this.spritePanel1.Load += new System.EventHandler(this.spritePanel1_Load);
-            this.spritePanel1.Click += new System.EventHandler(this.spritePanel1_Click);
             // 
             // MainForm
             // 

@@ -1,0 +1,22 @@
+{
+  "name": "GifPaper",
+  "version": "0.0.0",
+  "description": "gifpaper\r ========",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/masakapanda/gifpaper.git"
+  },
+  "author": "masakapanda",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/masakapanda/gifpaper/issues"
+  },
+  "homepage": "https://github.com/masakapanda/gifpaper"
+}
