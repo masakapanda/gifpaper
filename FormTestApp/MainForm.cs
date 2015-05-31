@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using System.IO;
-using BumpKit;
 using System.Threading.Tasks;
 using Gif.Components;
 
@@ -170,24 +169,7 @@ namespace GifPaper
             
             e.Finish();
         }
-
-        private void SaveGifBumpKit(SaveFileDialog sfd)
-        {
-            using (var gif = File.OpenWrite(sfd.FileName))
-            {
-                using (var encoder = new GifEncoder(gif, 600,600,0))
-                {
-                    foreach (Bitmap bitmap in bitmaps)
-                    {
-                        encoder.FrameDelay = TimeSpan.FromMilliseconds(200);
-                        encoder.AddFrame(bitmap);
-                    }
-                }
-
-            }
-        }
-
-
+        
         private void InsertFrameToolStripMenuItem_Click(object sender, EventArgs e)
         {
             spritePanel1.InsertFrame(createWhiteBitmap());
