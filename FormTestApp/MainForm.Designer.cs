@@ -29,41 +29,36 @@
         private void InitializeComponent()
         {
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.panelPallet = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.FileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gifSaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.PenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.FillToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.FrameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.InsertFrameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RemoveFrameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CopyFrameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PasteFrameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.WindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AnimationViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.HelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.InitTabletToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonInsertFrame = new System.Windows.Forms.Button();
             this.buttonRemoveFrame = new System.Windows.Forms.Button();
+            this.OpenFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.palettePanel1 = new GifPaper.PalettePanel();
             this.spritePanel1 = new GifPaper.SpritePanel();
             this.scribblePanel1 = new GifPaper.ScribblePanel();
-            this.WindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.AnimationViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panelPallet
-            // 
-            this.panelPallet.Location = new System.Drawing.Point(623, 35);
-            this.panelPallet.Name = "panelPallet";
-            this.panelPallet.Size = new System.Drawing.Size(75, 588);
-            this.panelPallet.TabIndex = 5;
-            this.panelPallet.Paint += new System.Windows.Forms.PaintEventHandler(this.panelPallet_Paint);
-            this.panelPallet.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panelPallet_MouseClick);
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.FileToolStripMenuItem,
+            this.ToolToolStripMenuItem,
             this.FrameToolStripMenuItem,
             this.WindowToolStripMenuItem,
             this.HelpToolStripMenuItem});
@@ -76,7 +71,8 @@
             // FileToolStripMenuItem
             // 
             this.FileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.gifSaveToolStripMenuItem});
+            this.gifSaveToolStripMenuItem,
+            this.OpenFileToolStripMenuItem});
             this.FileToolStripMenuItem.Name = "FileToolStripMenuItem";
             this.FileToolStripMenuItem.Size = new System.Drawing.Size(68, 22);
             this.FileToolStripMenuItem.Text = "ファイル";
@@ -87,6 +83,31 @@
             this.gifSaveToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.gifSaveToolStripMenuItem.Text = "GIF保存";
             this.gifSaveToolStripMenuItem.Click += new System.EventHandler(this.gifSaveToolStripMenuItem_Click);
+            // 
+            // ToolToolStripMenuItem
+            // 
+            this.ToolToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.PenToolStripMenuItem,
+            this.FillToolStripMenuItem});
+            this.ToolToolStripMenuItem.Name = "ToolToolStripMenuItem";
+            this.ToolToolStripMenuItem.Size = new System.Drawing.Size(56, 22);
+            this.ToolToolStripMenuItem.Text = "ツール";
+            // 
+            // PenToolStripMenuItem
+            // 
+            this.PenToolStripMenuItem.Checked = true;
+            this.PenToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.PenToolStripMenuItem.Name = "PenToolStripMenuItem";
+            this.PenToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.PenToolStripMenuItem.Text = "ペン";
+            this.PenToolStripMenuItem.Click += new System.EventHandler(this.PenToolStripMenuItem_Click);
+            // 
+            // FillToolStripMenuItem
+            // 
+            this.FillToolStripMenuItem.Name = "FillToolStripMenuItem";
+            this.FillToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.FillToolStripMenuItem.Text = "塗りつぶし";
+            this.FillToolStripMenuItem.Click += new System.EventHandler(this.FillToolStripMenuItem_Click);
             // 
             // FrameToolStripMenuItem
             // 
@@ -131,20 +152,26 @@
             this.PasteFrameToolStripMenuItem.Text = "ペースト";
             this.PasteFrameToolStripMenuItem.Click += new System.EventHandler(this.PasteFrameToolStripMenuItem_Click);
             // 
+            // WindowToolStripMenuItem
+            // 
+            this.WindowToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AnimationViewToolStripMenuItem});
+            this.WindowToolStripMenuItem.Name = "WindowToolStripMenuItem";
+            this.WindowToolStripMenuItem.Size = new System.Drawing.Size(80, 22);
+            this.WindowToolStripMenuItem.Text = "ウィンドウ";
+            // 
+            // AnimationViewToolStripMenuItem
+            // 
+            this.AnimationViewToolStripMenuItem.Name = "AnimationViewToolStripMenuItem";
+            this.AnimationViewToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.AnimationViewToolStripMenuItem.Text = "アニメ表示";
+            this.AnimationViewToolStripMenuItem.Click += new System.EventHandler(this.AnimationViewToolStripMenuItem_Click);
+            // 
             // HelpToolStripMenuItem
             // 
-            this.HelpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.InitTabletToolStripMenuItem});
             this.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem";
             this.HelpToolStripMenuItem.Size = new System.Drawing.Size(56, 22);
             this.HelpToolStripMenuItem.Text = "ヘルプ";
-            // 
-            // InitTabletToolStripMenuItem
-            // 
-            this.InitTabletToolStripMenuItem.Name = "InitTabletToolStripMenuItem";
-            this.InitTabletToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.InitTabletToolStripMenuItem.Text = "タブレット初期化";
-            this.InitTabletToolStripMenuItem.Click += new System.EventHandler(this.InitTabletToolStripMenuItem_Click);
             // 
             // panel1
             // 
@@ -154,6 +181,8 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(573, 80);
             this.panel1.TabIndex = 8;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.panel1.Layout += new System.Windows.Forms.LayoutEventHandler(this.panel1_Layout);
             // 
             // buttonInsertFrame
             // 
@@ -175,6 +204,22 @@
             this.buttonRemoveFrame.UseVisualStyleBackColor = true;
             this.buttonRemoveFrame.Click += new System.EventHandler(this.RemoveFrameToolStripMenuItem_Click);
             // 
+            // OpenFileToolStripMenuItem
+            // 
+            this.OpenFileToolStripMenuItem.Name = "OpenFileToolStripMenuItem";
+            this.OpenFileToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.OpenFileToolStripMenuItem.Text = "開く";
+            this.OpenFileToolStripMenuItem.Click += new System.EventHandler(this.OpenFileToolStripMenuItem_Click);
+            // 
+            // palettePanel1
+            // 
+            this.palettePanel1.Location = new System.Drawing.Point(618, 35);
+            this.palettePanel1.Name = "palettePanel1";
+            this.palettePanel1.Size = new System.Drawing.Size(80, 555);
+            this.palettePanel1.TabIndex = 12;
+            this.palettePanel1.OnChangeValue += new System.EventHandler(this.palettePanel1_OnChangeValue);
+            this.palettePanel1.Load += new System.EventHandler(this.palettePanel1_Load);
+            // 
             // spritePanel1
             // 
             this.spritePanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -194,24 +239,7 @@
             this.scribblePanel1.Name = "scribblePanel1";
             this.scribblePanel1.Size = new System.Drawing.Size(600, 588);
             this.scribblePanel1.TabIndex = 0;
-            this.scribblePanel1.Load += new System.EventHandler(this.scribblePanel1_Load);
-            this.scribblePanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.scribblePanel1_Paint);
             this.scribblePanel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.scribblePanel1_MouseUp);
-            // 
-            // WindowToolStripMenuItem
-            // 
-            this.WindowToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.AnimationViewToolStripMenuItem});
-            this.WindowToolStripMenuItem.Name = "WindowToolStripMenuItem";
-            this.WindowToolStripMenuItem.Size = new System.Drawing.Size(80, 22);
-            this.WindowToolStripMenuItem.Text = "ウィンドウ";
-            // 
-            // AnimationViewToolStripMenuItem
-            // 
-            this.AnimationViewToolStripMenuItem.Name = "AnimationViewToolStripMenuItem";
-            this.AnimationViewToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.AnimationViewToolStripMenuItem.Text = "アニメ表示";
-            this.AnimationViewToolStripMenuItem.Click += new System.EventHandler(this.AnimationViewToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -219,17 +247,18 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(710, 721);
+            this.Controls.Add(this.palettePanel1);
             this.Controls.Add(this.buttonRemoveFrame);
             this.Controls.Add(this.buttonInsertFrame);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.scribblePanel1);
-            this.Controls.Add(this.panelPallet);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "GifPaper";
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.Layout += new System.Windows.Forms.LayoutEventHandler(this.MainForm_Layout);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -241,7 +270,6 @@
         #endregion
 
         private System.Windows.Forms.ColorDialog colorDialog1;
-        private System.Windows.Forms.Panel panelPallet;
         private ScribblePanel scribblePanel1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem FileToolStripMenuItem;
@@ -254,11 +282,15 @@
         private System.Windows.Forms.ToolStripMenuItem CopyFrameToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem PasteFrameToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem HelpToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem InitTabletToolStripMenuItem;
         private System.Windows.Forms.Button buttonInsertFrame;
         private System.Windows.Forms.Button buttonRemoveFrame;
         private System.Windows.Forms.ToolStripMenuItem WindowToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem AnimationViewToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ToolToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem PenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem FillToolStripMenuItem;
+        private PalettePanel palettePanel1;
+        private System.Windows.Forms.ToolStripMenuItem OpenFileToolStripMenuItem;
     }
 }
 

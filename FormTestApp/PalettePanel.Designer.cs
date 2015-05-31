@@ -1,6 +1,6 @@
 ﻿namespace GifPaper
 {
-    partial class ScribblePanel
+    partial class PalettePanel
     {
         /// <summary> 
         /// 必要なデザイナー変数です。
@@ -30,18 +30,14 @@
         {
             this.SuspendLayout();
             // 
-            // ScribblePanel
+            // PalettePanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.DoubleBuffered = true;
-            this.Name = "ScribblePanel";
-            this.Size = new System.Drawing.Size(600, 600);
-            this.Load += new System.EventHandler(this.ScribblePanel_Load);
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.ScribblePanel_Paint);
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ScribblePanel_MouseDown);
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ScribblePanel_MouseMove);
-            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ScribblePanel_MouseUp);
+            this.Name = "PalettePanel";
+            this.Size = new System.Drawing.Size(148, 555);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.PalettePanel_Paint);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PalettePanel_MouseUp);
             this.ResumeLayout(false);
 
         }

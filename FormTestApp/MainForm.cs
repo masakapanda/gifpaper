@@ -1,15 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Text;
 using System.Windows.Forms;
-using WintabDN;
-using System.Threading;
-using System.Windows;
-using System.Diagnostics;
 using System.IO;
 using BumpKit;
 using System.Threading.Tasks;
@@ -19,39 +11,8 @@ namespace GifPaper
 {
     public partial class MainForm : Form
     {
-        List<String> colors = new List<String> {
-            "#000000",
-            "#ffffff",
-            "#fce94f",
-            "#edd400",
-            "#c4a000",
-            "#fcaf3e",
-            "#f57900",
-            "#ce5c00",
-            "#e9b96e",
-            "#c17d11",
-            "#8f5902",
-            "#8ae234",
-            "#73d216",
-            "#4e9a06",
-            "#729fcf",
-            "#3465a4",
-            "#204a87",
-            "#ad7fa8",
-            "#75507b",
-            "#5c3566",
-            "#ef2929",
-            "#cc0000",
-            "#a40000",
-            "#eeeeec",
-            "#d3d7cf",
-            "#babdb6",
-            "#888a85",
-            "#555753",
-            "#2e3436",
-        };
+
         List<Bitmap> bitmaps = new List<Bitmap> { };
-        int colorIdx = 0;
         int bitmapsIdx = 0;
 
 
@@ -67,7 +28,6 @@ namespace GifPaper
         public MainForm()
         {
             InitializeComponent();
-            //Bitmap canvas = new Bitmap(scribblePanel1.Width, scribblePanel1.Height);
 
             for (int i = 0; i < 4; i++)
             {
@@ -99,15 +59,13 @@ namespace GifPaper
 
             scribblePanel1.Invalidate();
             spritePanel1.Invalidate();
-
-            //ClearDisplay();
         }
 
 
         private void CloseCurrentContext()
         {
 
-            scribblePanel1.CloseCurrentContext();
+            //scribblePanel1.CloseCurrentContext();
         }
 
 
@@ -119,70 +77,22 @@ namespace GifPaper
 
         private void panelPallet_Paint(object sender, PaintEventArgs e)
         {
-            Graphics g = e.Graphics;
-            var w = panelPallet.Width;
 
-            int y = 0;
-            foreach (String color in colors)
-            {
-                var c = System.Drawing.ColorTranslator.FromHtml(color);
-                SolidBrush b = new SolidBrush(c);
-                g.FillRectangle(b, 0, y, w, 15);
-                y += 15;
-            }
-
-            g.DrawRectangle(new Pen(Color.Red), 0, colorIdx * 15, w - 1, 14);
         }
 
         private void panelPallet_MouseClick(object sender, MouseEventArgs e)
         {
 
-            if (e.Y / 15 < colors.Count)
-            {
-                colorIdx = e.Y / 15;
-
-                var c = System.Drawing.ColorTranslator.FromHtml(colors[colorIdx]);
-                scribblePanel1.m_pen.Color = c;
-            }
-            panelPallet.Invalidate();
-        }
-
-        private void scribblePanel1_Paint(object sender, PaintEventArgs e)
-        {
 
         }
 
 
-
-
-        private void panelFrames_Paint(object sender, PaintEventArgs e)
-        {
-            /*
-            int i = 0;
-            foreach (Bitmap bitmap in bitmaps)
-            {
-                e.Graphics.DrawImage(bitmaps[i], new Rectangle(i * 60, 0, 60, 60));
-                i++;
-            }
-
-            e.Graphics.DrawRectangle(new Pen(Color.Red), bitmapsIdx * 60, 0, 59, 59);*/
-
-        }
 
         private void scribblePanel1_MouseUp(object sender, MouseEventArgs e)
         {
             spritePanel1.Invalidate();
         }
 
-        private void panelFrames_MouseClick(object sender, MouseEventArgs e)
-        {
-            /*
-            if (e.X / 60 < bitmaps.Count)
-            {
-                bitmapsIdx = e.X / 60;
-            }
-             */
-        }
 
         AnimationForm animation = new AnimationForm();
 
@@ -190,11 +100,6 @@ namespace GifPaper
         {
             animation.Show();
             animation.SetBitmap(bitmaps);
-        }
-
-        private void scribblePanel1_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void spritePanel1_Load(object sender, EventArgs e)
@@ -287,12 +192,14 @@ namespace GifPaper
         {
             spritePanel1.InsertFrame(createWhiteBitmap());
             UpdateIndex();
+            spritePanel1.Width = bitmaps.Count * 60;
         }
 
         private void RemoveFrameToolStripMenuItem_Click(object sender, EventArgs e)
         {
             spritePanel1.RemoveFrame();
             UpdateIndex();
+            spritePanel1.Width = bitmaps.Count * 60;
         }
 
         private void CopyFrameToolStripMenuItem_Click(object sender, EventArgs e)
@@ -327,5 +234,82 @@ namespace GifPaper
         }
 
 
+        private void PenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PenToolStripMenuItem.Checked = false;
+            FillToolStripMenuItem.Checked = false;
+            PenToolStripMenuItem.Checked = true;
+        }
+
+        private void FillToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PenToolStripMenuItem.Checked = false;
+            FillToolStripMenuItem.Checked = false;
+            FillToolStripMenuItem.Checked = true;
+ 
+        }
+
+        private void palettePanel1_OnChangeValue(object sender, EventArgs e)
+        {
+            scribblePanel1.m_pen.Color = palettePanel1.Color;
+        }
+
+        private void palettePanel1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void OpenFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "GIFファイル(*.gif)|*.gif|すべてのファイル(*.*)|*.*";
+
+            //ダイアログを表示する
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                OpenGif(ofd);
+            }
+        }
+
+        private void OpenGif(OpenFileDialog ofd)
+        {
+            GifDecoder decoder = new GifDecoder();
+            decoder.Read(File.OpenRead(ofd.FileName));
+            var frame = decoder.GetFrameCount();
+
+            List<Bitmap> loaded = new List<Bitmap> { };
+            for (int i = 0; i < frame; i++)
+            {
+                var image = decoder.GetFrame(i);
+                loaded.Add(new Bitmap(image));
+            }
+
+            this.bitmaps = loaded;
+            spritePanel1.bitmaps = bitmaps;
+            spritePanel1.Index = 0;
+
+            scribblePanel1.SetBuffer(bitmaps[bitmapsIdx]);
+            scribblePanel1.SetUnderlayBuffer(bitmaps[bitmapsIdx]);
+            animation.SetBitmap(bitmaps);
+
+            spritePanel1.Width = bitmaps.Count * 60;
+
+        }
+
+        private void panel1_Layout(object sender, LayoutEventArgs e)
+        {
+            panel1.HorizontalScroll.Visible = true;
+        }
+
+        private void MainForm_Layout(object sender, LayoutEventArgs e)
+        {
+            panel1.HorizontalScroll.Visible = true;
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
