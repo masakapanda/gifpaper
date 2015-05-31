@@ -256,5 +256,37 @@ namespace GifPaper
         {
 
         }
+
+        private void OpenFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            //ダイアログを表示する
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                OpenGif(ofd);
+            }
+        }
+
+        private void OpenGif(OpenFileDialog ofd)
+        {
+            GifDecoder decoder = new GifDecoder();
+            decoder.Read(File.OpenRead(ofd.FileName));
+            var frame = decoder.GetFrameCount();
+
+            List<Bitmap> loaded = new List<Bitmap> { };
+            for (int i = 0; i < frame; i++)
+            {
+                var image = decoder.GetFrame(i);
+                loaded.Add(new Bitmap(image));
+            }
+
+            this.bitmaps = loaded;
+            spritePanel1.bitmaps = bitmaps;
+            spritePanel1.Index = 0;
+
+            scribblePanel1.SetBuffer(bitmaps[bitmapsIdx]);
+            scribblePanel1.SetUnderlayBuffer(bitmaps[bitmapsIdx]);
+            animation.SetBitmap(bitmaps);
+        }
     }
 }

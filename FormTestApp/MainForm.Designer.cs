@@ -46,9 +46,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonInsertFrame = new System.Windows.Forms.Button();
             this.buttonRemoveFrame = new System.Windows.Forms.Button();
+            this.palettePanel1 = new GifPaper.PalettePanel();
             this.spritePanel1 = new GifPaper.SpritePanel();
             this.scribblePanel1 = new GifPaper.ScribblePanel();
-            this.palettePanel1 = new GifPaper.PalettePanel();
+            this.OpenFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -70,7 +71,8 @@
             // FileToolStripMenuItem
             // 
             this.FileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.gifSaveToolStripMenuItem});
+            this.gifSaveToolStripMenuItem,
+            this.OpenFileToolStripMenuItem});
             this.FileToolStripMenuItem.Name = "FileToolStripMenuItem";
             this.FileToolStripMenuItem.Size = new System.Drawing.Size(68, 22);
             this.FileToolStripMenuItem.Text = "ファイル";
@@ -78,7 +80,7 @@
             // gifSaveToolStripMenuItem
             // 
             this.gifSaveToolStripMenuItem.Name = "gifSaveToolStripMenuItem";
-            this.gifSaveToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.gifSaveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.gifSaveToolStripMenuItem.Text = "GIF保存";
             this.gifSaveToolStripMenuItem.Click += new System.EventHandler(this.gifSaveToolStripMenuItem_Click);
             // 
@@ -200,6 +202,15 @@
             this.buttonRemoveFrame.UseVisualStyleBackColor = true;
             this.buttonRemoveFrame.Click += new System.EventHandler(this.RemoveFrameToolStripMenuItem_Click);
             // 
+            // palettePanel1
+            // 
+            this.palettePanel1.Location = new System.Drawing.Point(618, 35);
+            this.palettePanel1.Name = "palettePanel1";
+            this.palettePanel1.Size = new System.Drawing.Size(80, 555);
+            this.palettePanel1.TabIndex = 12;
+            this.palettePanel1.OnChangeValue += new System.EventHandler(this.palettePanel1_OnChangeValue);
+            this.palettePanel1.Load += new System.EventHandler(this.palettePanel1_Load);
+            // 
             // spritePanel1
             // 
             this.spritePanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -221,14 +232,12 @@
             this.scribblePanel1.TabIndex = 0;
             this.scribblePanel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.scribblePanel1_MouseUp);
             // 
-            // palettePanel1
+            // OpenFileToolStripMenuItem
             // 
-            this.palettePanel1.Location = new System.Drawing.Point(618, 35);
-            this.palettePanel1.Name = "palettePanel1";
-            this.palettePanel1.Size = new System.Drawing.Size(80, 555);
-            this.palettePanel1.TabIndex = 12;
-            this.palettePanel1.OnChangeValue += new System.EventHandler(this.palettePanel1_OnChangeValue);
-            this.palettePanel1.Load += new System.EventHandler(this.palettePanel1_Load);
+            this.OpenFileToolStripMenuItem.Name = "OpenFileToolStripMenuItem";
+            this.OpenFileToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.OpenFileToolStripMenuItem.Text = "開く";
+            this.OpenFileToolStripMenuItem.Click += new System.EventHandler(this.OpenFileToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -278,6 +287,7 @@
         private System.Windows.Forms.ToolStripMenuItem PenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem FillToolStripMenuItem;
         private PalettePanel palettePanel1;
+        private System.Windows.Forms.ToolStripMenuItem OpenFileToolStripMenuItem;
     }
 }
 
