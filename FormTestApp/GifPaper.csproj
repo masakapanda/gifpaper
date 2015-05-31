@@ -84,12 +84,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ScribblePanelWintab.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ScribblePanelWintab.Designer.cs">
-      <DependentUpon>ScribblePanelWintab.cs</DependentUpon>
-    </Compile>
     <Compile Include="ScribblePanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -118,9 +112,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="ScribblePanelWintab.resx">
-      <DependentUpon>ScribblePanelWintab.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ScribblePanel.resx">
       <DependentUpon>ScribblePanel.cs</DependentUpon>
     </EmbeddedResource>
@@ -138,12 +129,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\WintabDN\WintabDN.csproj">
-      <Project>{73EAE30A-60B9-43A5-AD81-9B05873E405C}</Project>
-      <Name>WintabDN</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">

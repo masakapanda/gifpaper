@@ -1,15 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Text;
 using System.Windows.Forms;
-using WintabDN;
-using System.Threading;
-using System.Windows;
-using System.Diagnostics;
 using System.IO;
 using BumpKit;
 using System.Threading.Tasks;
@@ -67,7 +59,6 @@ namespace GifPaper
         public MainForm()
         {
             InitializeComponent();
-            //Bitmap canvas = new Bitmap(scribblePanel1.Width, scribblePanel1.Height);
 
             for (int i = 0; i < 4; i++)
             {
@@ -99,8 +90,6 @@ namespace GifPaper
 
             scribblePanel1.Invalidate();
             spritePanel1.Invalidate();
-
-            //ClearDisplay();
         }
 
 
@@ -147,42 +136,13 @@ namespace GifPaper
             panelPallet.Invalidate();
         }
 
-        private void scribblePanel1_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
-
-
-
-
-        private void panelFrames_Paint(object sender, PaintEventArgs e)
-        {
-            /*
-            int i = 0;
-            foreach (Bitmap bitmap in bitmaps)
-            {
-                e.Graphics.DrawImage(bitmaps[i], new Rectangle(i * 60, 0, 60, 60));
-                i++;
-            }
-
-            e.Graphics.DrawRectangle(new Pen(Color.Red), bitmapsIdx * 60, 0, 59, 59);*/
-
-        }
 
         private void scribblePanel1_MouseUp(object sender, MouseEventArgs e)
         {
             spritePanel1.Invalidate();
         }
 
-        private void panelFrames_MouseClick(object sender, MouseEventArgs e)
-        {
-            /*
-            if (e.X / 60 < bitmaps.Count)
-            {
-                bitmapsIdx = e.X / 60;
-            }
-             */
-        }
 
         AnimationForm animation = new AnimationForm();
 
@@ -190,11 +150,6 @@ namespace GifPaper
         {
             animation.Show();
             animation.SetBitmap(bitmaps);
-        }
-
-        private void scribblePanel1_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void spritePanel1_Load(object sender, EventArgs e)
@@ -341,7 +296,5 @@ namespace GifPaper
             FillToolStripMenuItem.Checked = true;
  
         }
-
-
     }
 }

@@ -7,7 +7,6 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using WintabDN;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 
@@ -61,6 +60,7 @@ namespace GifPaper
 
         private void InitCanvas()
         {
+            //FIXME 素早く操作すると、ここでbufferがすでに使われているとエラーが出て落ちる
             m_graphics = Graphics.FromImage(buffer);
             m_graphics.DrawImageUnscaled(buffer, Point.Empty);
 
