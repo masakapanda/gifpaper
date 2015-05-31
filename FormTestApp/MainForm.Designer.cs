@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.panelPallet = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.FileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gifSaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,22 +44,14 @@
             this.AnimationViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.HelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.spritePanel1 = new GifPaper.SpritePanel();
             this.buttonInsertFrame = new System.Windows.Forms.Button();
             this.buttonRemoveFrame = new System.Windows.Forms.Button();
+            this.spritePanel1 = new GifPaper.SpritePanel();
             this.scribblePanel1 = new GifPaper.ScribblePanel();
+            this.palettePanel1 = new GifPaper.PalettePanel();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panelPallet
-            // 
-            this.panelPallet.Location = new System.Drawing.Point(623, 35);
-            this.panelPallet.Name = "panelPallet";
-            this.panelPallet.Size = new System.Drawing.Size(75, 588);
-            this.panelPallet.TabIndex = 5;
-            this.panelPallet.Paint += new System.Windows.Forms.PaintEventHandler(this.panelPallet_Paint);
-            this.panelPallet.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panelPallet_MouseClick);
             // 
             // menuStrip1
             // 
@@ -189,19 +180,6 @@
             this.panel1.Size = new System.Drawing.Size(573, 80);
             this.panel1.TabIndex = 8;
             // 
-            // spritePanel1
-            // 
-            this.spritePanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.spritePanel1.bitmaps = null;
-            this.spritePanel1.Index = 0;
-            this.spritePanel1.Location = new System.Drawing.Point(0, 3);
-            this.spritePanel1.Name = "spritePanel1";
-            this.spritePanel1.Size = new System.Drawing.Size(570, 60);
-            this.spritePanel1.TabIndex = 7;
-            this.spritePanel1.OnChangeValue += new System.EventHandler(this.spritePanel1_OnChangeValue);
-            this.spritePanel1.Load += new System.EventHandler(this.spritePanel1_Load);
-            this.spritePanel1.Click += new System.EventHandler(this.spritePanel1_Click);
-            // 
             // buttonInsertFrame
             // 
             this.buttonInsertFrame.Location = new System.Drawing.Point(12, 629);
@@ -222,6 +200,19 @@
             this.buttonRemoveFrame.UseVisualStyleBackColor = true;
             this.buttonRemoveFrame.Click += new System.EventHandler(this.RemoveFrameToolStripMenuItem_Click);
             // 
+            // spritePanel1
+            // 
+            this.spritePanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.spritePanel1.bitmaps = null;
+            this.spritePanel1.Index = 0;
+            this.spritePanel1.Location = new System.Drawing.Point(0, 3);
+            this.spritePanel1.Name = "spritePanel1";
+            this.spritePanel1.Size = new System.Drawing.Size(570, 60);
+            this.spritePanel1.TabIndex = 7;
+            this.spritePanel1.OnChangeValue += new System.EventHandler(this.spritePanel1_OnChangeValue);
+            this.spritePanel1.Load += new System.EventHandler(this.spritePanel1_Load);
+            this.spritePanel1.Click += new System.EventHandler(this.spritePanel1_Click);
+            // 
             // scribblePanel1
             // 
             this.scribblePanel1.Location = new System.Drawing.Point(12, 35);
@@ -230,17 +221,26 @@
             this.scribblePanel1.TabIndex = 0;
             this.scribblePanel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.scribblePanel1_MouseUp);
             // 
+            // palettePanel1
+            // 
+            this.palettePanel1.Location = new System.Drawing.Point(618, 35);
+            this.palettePanel1.Name = "palettePanel1";
+            this.palettePanel1.Size = new System.Drawing.Size(80, 555);
+            this.palettePanel1.TabIndex = 12;
+            this.palettePanel1.OnChangeValue += new System.EventHandler(this.palettePanel1_OnChangeValue);
+            this.palettePanel1.Load += new System.EventHandler(this.palettePanel1_Load);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(710, 721);
+            this.Controls.Add(this.palettePanel1);
             this.Controls.Add(this.buttonRemoveFrame);
             this.Controls.Add(this.buttonInsertFrame);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.scribblePanel1);
-            this.Controls.Add(this.panelPallet);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
@@ -258,7 +258,6 @@
         #endregion
 
         private System.Windows.Forms.ColorDialog colorDialog1;
-        private System.Windows.Forms.Panel panelPallet;
         private ScribblePanel scribblePanel1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem FileToolStripMenuItem;
@@ -278,6 +277,7 @@
         private System.Windows.Forms.ToolStripMenuItem ToolToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem PenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem FillToolStripMenuItem;
+        private PalettePanel palettePanel1;
     }
 }
 
