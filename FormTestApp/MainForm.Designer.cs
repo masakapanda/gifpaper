@@ -46,10 +46,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonInsertFrame = new System.Windows.Forms.Button();
             this.buttonRemoveFrame = new System.Windows.Forms.Button();
+            this.OpenFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.palettePanel1 = new GifPaper.PalettePanel();
             this.spritePanel1 = new GifPaper.SpritePanel();
             this.scribblePanel1 = new GifPaper.ScribblePanel();
-            this.OpenFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -80,7 +80,7 @@
             // gifSaveToolStripMenuItem
             // 
             this.gifSaveToolStripMenuItem.Name = "gifSaveToolStripMenuItem";
-            this.gifSaveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.gifSaveToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.gifSaveToolStripMenuItem.Text = "GIF保存";
             this.gifSaveToolStripMenuItem.Click += new System.EventHandler(this.gifSaveToolStripMenuItem_Click);
             // 
@@ -181,6 +181,8 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(573, 80);
             this.panel1.TabIndex = 8;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.panel1.Layout += new System.Windows.Forms.LayoutEventHandler(this.panel1_Layout);
             // 
             // buttonInsertFrame
             // 
@@ -201,6 +203,13 @@
             this.buttonRemoveFrame.Text = "-";
             this.buttonRemoveFrame.UseVisualStyleBackColor = true;
             this.buttonRemoveFrame.Click += new System.EventHandler(this.RemoveFrameToolStripMenuItem_Click);
+            // 
+            // OpenFileToolStripMenuItem
+            // 
+            this.OpenFileToolStripMenuItem.Name = "OpenFileToolStripMenuItem";
+            this.OpenFileToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.OpenFileToolStripMenuItem.Text = "開く";
+            this.OpenFileToolStripMenuItem.Click += new System.EventHandler(this.OpenFileToolStripMenuItem_Click);
             // 
             // palettePanel1
             // 
@@ -232,13 +241,6 @@
             this.scribblePanel1.TabIndex = 0;
             this.scribblePanel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.scribblePanel1_MouseUp);
             // 
-            // OpenFileToolStripMenuItem
-            // 
-            this.OpenFileToolStripMenuItem.Name = "OpenFileToolStripMenuItem";
-            this.OpenFileToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.OpenFileToolStripMenuItem.Text = "開く";
-            this.OpenFileToolStripMenuItem.Click += new System.EventHandler(this.OpenFileToolStripMenuItem_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -256,6 +258,7 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "GifPaper";
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.Layout += new System.Windows.Forms.LayoutEventHandler(this.MainForm_Layout);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);

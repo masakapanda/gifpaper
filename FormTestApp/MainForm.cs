@@ -192,12 +192,14 @@ namespace GifPaper
         {
             spritePanel1.InsertFrame(createWhiteBitmap());
             UpdateIndex();
+            spritePanel1.Width = bitmaps.Count * 60;
         }
 
         private void RemoveFrameToolStripMenuItem_Click(object sender, EventArgs e)
         {
             spritePanel1.RemoveFrame();
             UpdateIndex();
+            spritePanel1.Width = bitmaps.Count * 60;
         }
 
         private void CopyFrameToolStripMenuItem_Click(object sender, EventArgs e)
@@ -260,6 +262,8 @@ namespace GifPaper
         private void OpenFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "GIFファイル(*.gif)|*.gif|すべてのファイル(*.*)|*.*";
+
             //ダイアログを表示する
             if (ofd.ShowDialog() == DialogResult.OK)
             {
@@ -287,6 +291,25 @@ namespace GifPaper
             scribblePanel1.SetBuffer(bitmaps[bitmapsIdx]);
             scribblePanel1.SetUnderlayBuffer(bitmaps[bitmapsIdx]);
             animation.SetBitmap(bitmaps);
+
+            spritePanel1.Width = bitmaps.Count * 60;
+
+        }
+
+        private void panel1_Layout(object sender, LayoutEventArgs e)
+        {
+            panel1.HorizontalScroll.Visible = true;
+        }
+
+        private void MainForm_Layout(object sender, LayoutEventArgs e)
+        {
+            panel1.HorizontalScroll.Visible = true;
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
