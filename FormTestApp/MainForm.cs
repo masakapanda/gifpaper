@@ -293,5 +293,10 @@ namespace GifPaper
         {
 
         }
+
+        private void scribblePanel1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

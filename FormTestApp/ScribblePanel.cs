@@ -21,6 +21,9 @@ namespace GifPaper
         public void SetBuffer(Bitmap b){
             buffer = b;
             InitCanvas();
+
+            this.Width = b.Width;
+            this.Height = b.Height;
         }
 
         public ScribblePanel()
@@ -61,6 +64,8 @@ namespace GifPaper
             m_graphics.DrawImageUnscaled(buffer, Point.Empty);
 
             m_graphics.SmoothingMode = SmoothingMode.None;
+            this.Width = buffer.Width;
+            this.Height = buffer.Height;
 
         }
 
@@ -95,7 +100,6 @@ namespace GifPaper
 
         private void ScribblePanel_Paint(object sender, PaintEventArgs e)
         {
-            e.Graphics.Clear(Color.White);
 
             if (bufferUnderlay != null)
             {
