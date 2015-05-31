@@ -1,6 +1,6 @@
 ﻿namespace GifPaper
 {
-    partial class ScribblePanel
+    partial class ScribblePanelWintab
     {
         /// <summary> 
         /// 必要なデザイナー変数です。
@@ -39,9 +39,6 @@
             this.Size = new System.Drawing.Size(600, 600);
             this.Load += new System.EventHandler(this.ScribblePanel_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.ScribblePanel_Paint);
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ScribblePanel_MouseDown);
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ScribblePanel_MouseMove);
-            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ScribblePanel_MouseUp);
             this.ResumeLayout(false);
 
         }

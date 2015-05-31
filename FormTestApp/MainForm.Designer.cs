@@ -38,15 +38,18 @@
             this.RemoveFrameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CopyFrameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PasteFrameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.WindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AnimationViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.HelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.InitTabletToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonInsertFrame = new System.Windows.Forms.Button();
             this.buttonRemoveFrame = new System.Windows.Forms.Button();
+            this.ToolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.PenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.FillToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.spritePanel1 = new GifPaper.SpritePanel();
             this.scribblePanel1 = new GifPaper.ScribblePanel();
-            this.WindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.AnimationViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -64,6 +67,7 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.FileToolStripMenuItem,
+            this.ToolToolStripMenuItem,
             this.FrameToolStripMenuItem,
             this.WindowToolStripMenuItem,
             this.HelpToolStripMenuItem});
@@ -131,6 +135,21 @@
             this.PasteFrameToolStripMenuItem.Text = "ペースト";
             this.PasteFrameToolStripMenuItem.Click += new System.EventHandler(this.PasteFrameToolStripMenuItem_Click);
             // 
+            // WindowToolStripMenuItem
+            // 
+            this.WindowToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AnimationViewToolStripMenuItem});
+            this.WindowToolStripMenuItem.Name = "WindowToolStripMenuItem";
+            this.WindowToolStripMenuItem.Size = new System.Drawing.Size(80, 22);
+            this.WindowToolStripMenuItem.Text = "ウィンドウ";
+            // 
+            // AnimationViewToolStripMenuItem
+            // 
+            this.AnimationViewToolStripMenuItem.Name = "AnimationViewToolStripMenuItem";
+            this.AnimationViewToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.AnimationViewToolStripMenuItem.Text = "アニメ表示";
+            this.AnimationViewToolStripMenuItem.Click += new System.EventHandler(this.AnimationViewToolStripMenuItem_Click);
+            // 
             // HelpToolStripMenuItem
             // 
             this.HelpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -175,6 +194,31 @@
             this.buttonRemoveFrame.UseVisualStyleBackColor = true;
             this.buttonRemoveFrame.Click += new System.EventHandler(this.RemoveFrameToolStripMenuItem_Click);
             // 
+            // ToolToolStripMenuItem
+            // 
+            this.ToolToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.PenToolStripMenuItem,
+            this.FillToolStripMenuItem});
+            this.ToolToolStripMenuItem.Name = "ToolToolStripMenuItem";
+            this.ToolToolStripMenuItem.Size = new System.Drawing.Size(56, 22);
+            this.ToolToolStripMenuItem.Text = "ツール";
+            // 
+            // PenToolStripMenuItem
+            // 
+            this.PenToolStripMenuItem.Checked = true;
+            this.PenToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.PenToolStripMenuItem.Name = "PenToolStripMenuItem";
+            this.PenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.PenToolStripMenuItem.Text = "ペン";
+            this.PenToolStripMenuItem.Click += new System.EventHandler(this.PenToolStripMenuItem_Click);
+            // 
+            // FillToolStripMenuItem
+            // 
+            this.FillToolStripMenuItem.Name = "FillToolStripMenuItem";
+            this.FillToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.FillToolStripMenuItem.Text = "塗りつぶし";
+            this.FillToolStripMenuItem.Click += new System.EventHandler(this.FillToolStripMenuItem_Click);
+            // 
             // spritePanel1
             // 
             this.spritePanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -197,21 +241,6 @@
             this.scribblePanel1.Load += new System.EventHandler(this.scribblePanel1_Load);
             this.scribblePanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.scribblePanel1_Paint);
             this.scribblePanel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.scribblePanel1_MouseUp);
-            // 
-            // WindowToolStripMenuItem
-            // 
-            this.WindowToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.AnimationViewToolStripMenuItem});
-            this.WindowToolStripMenuItem.Name = "WindowToolStripMenuItem";
-            this.WindowToolStripMenuItem.Size = new System.Drawing.Size(80, 22);
-            this.WindowToolStripMenuItem.Text = "ウィンドウ";
-            // 
-            // AnimationViewToolStripMenuItem
-            // 
-            this.AnimationViewToolStripMenuItem.Name = "AnimationViewToolStripMenuItem";
-            this.AnimationViewToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.AnimationViewToolStripMenuItem.Text = "アニメ表示";
-            this.AnimationViewToolStripMenuItem.Click += new System.EventHandler(this.AnimationViewToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -259,6 +288,9 @@
         private System.Windows.Forms.Button buttonRemoveFrame;
         private System.Windows.Forms.ToolStripMenuItem WindowToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem AnimationViewToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ToolToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem PenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem FillToolStripMenuItem;
     }
 }
 

@@ -107,7 +107,7 @@ namespace GifPaper
         private void CloseCurrentContext()
         {
 
-            scribblePanel1.CloseCurrentContext();
+            //scribblePanel1.CloseCurrentContext();
         }
 
 
@@ -324,6 +324,22 @@ namespace GifPaper
         private void AnimationViewToolStripMenuItem_Click(object sender, EventArgs e)
         {
             animation.Show();
+        }
+
+
+        private void PenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PenToolStripMenuItem.Checked = false;
+            FillToolStripMenuItem.Checked = false;
+            PenToolStripMenuItem.Checked = true;
+        }
+
+        private void FillToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PenToolStripMenuItem.Checked = false;
+            FillToolStripMenuItem.Checked = false;
+            FillToolStripMenuItem.Checked = true;
+ 
         }
 
 
