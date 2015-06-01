@@ -10,7 +10,6 @@ namespace GifPaper
 {
     public partial class MainForm : Form
     {
-
         List<Bitmap> bitmaps = new List<Bitmap> { };
         int bitmapsIdx = 0;
 
@@ -233,7 +232,7 @@ namespace GifPaper
 
         private void palettePanel1_OnChangeValue(object sender, EventArgs e)
         {
-            scribblePanel1.m_pen.Color = palettePanel1.Color;
+            scribblePanel1.SetColor(palettePanel1.Color);
         }
 
         private void palettePanel1_Load(object sender, EventArgs e)
@@ -296,6 +295,12 @@ namespace GifPaper
 
         private void scribblePanel1_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void scribblePanel1_OnDrawStroke(object sender, EventArgs e)
+        {
+            spritePanel1.Invalidate();
 
         }
     }
