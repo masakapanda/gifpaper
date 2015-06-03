@@ -5,6 +5,8 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
+using System.Windows.Ink;
+using Microsoft.Ink;
 
 namespace GifPaper
 {
@@ -17,6 +19,15 @@ namespace GifPaper
         Bitmap buffer =new Bitmap(600, 600);
         Bitmap bufferUnderlay;
         bool drawing = false;
+        InkOverlay ink = new InkOverlay();
+
+        public void SetColor(Color c)
+        {
+            ink.DefaultDrawingAttributes.Color = c;
+        }
+
+        public event EventHandler OnDrawStroke;
+
 
         public void SetBuffer(Bitmap b){
             buffer = b;
@@ -29,6 +40,23 @@ namespace GifPaper
         public ScribblePanel()
         {
             InitializeComponent();
+            ink.AttachedControl = this;
+            ink.AttachMode = InkOverlayAttachMode.InFront;
+            ink.Enabled = true;
+            ink.Stroke += Ink_Stroke;
+            ink.EraserMode = InkOverlayEraserMode.PointErase;
+            ink.DefaultDrawingAttributes.AntiAliased = false;
+        }
+
+        private void Ink_Stroke(object sender, InkCollectorStrokeEventArgs e)
+        {
+            ink.Renderer.Draw(buffer, ink.Ink.Strokes);
+            ink.Enabled = false;
+            ink.Ink = new Microsoft.Ink.Ink();
+            ink.Enabled = true;
+            this.Invalidate();
+
+            this.OnDrawStroke(sender, e);
         }
 
         public void Initialize()
@@ -184,6 +212,30 @@ namespace GifPaper
             drawing = false;
 
         }
- 
+
+        private void inkPicture1_Stroke(object sender, InkCollectorStrokeEventArgs e)
+        {
+
+            /*
+            inkPicture1.Renderer.Draw(buffer, inkPicture1.Ink.Strokes);
+            this.Invalidate();
+            inkPicture1.InkEnabled = false;
+            inkPicture1.Ink = new Microsoft.Ink.Ink();
+            inkPicture1.InkEnabled = true;
+
+            inkPicture1.
+            inkPicture1.DrawImage(buffer, new Point(0, 0));
+            inkPicture1.Invalidate();
+            */
+            /*
+            Graphics graphicsSrc = inkPicture1.CreateGraphics();
+            graphicsSrc.DrawImage(m_graphics, new Point(0,0));
+            /*
+            */
+        }
+
+        private void inkPicture1_Painted(object sender, PaintEventArgs e)
+        {
+        }
     }
 }
